@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LoginSignup.css';
-import user_icon from './assets/person.png';
-import email_icon from './assets/email.png';
-import password_icon from './assets/password.png';
 
 const LoginSignup = () => {
+    const [action, setAction] = useState("Login");
+
     return (
-        <div className='container0'>
+        <div className='container'>
             <div className="header">
-                <div className="text">Sign up</div>
+                <div className="text">{action}</div>
                 <div className="underline"></div>
             </div>
             <div className="inputs">
+                {action === "Login" ? <div></div> : (
+                    <div className="input">
+                        {/* Image removed */}
+                        <input type="text" placeholder="Username" />
+                    </div>
+                )}
+
                 <div className="input">
-                    <img src={user_icon} alt="User Icon" />
-                    <input type="text" placeholder="Username" />
-                </div>
-                <div className="input">
-                    <img src={email_icon} alt="Email Icon" />
+                    {/* Image removed */}
                     <input type="email" placeholder="Email ID" />
                 </div>
                 <div className="input">
-                    <img src={password_icon} alt="Password Icon" />
+                    {/* Image removed */}
                     <input type="password" placeholder="Password" />
                 </div>
             </div>
-            <div className="forgot-password">Lost Password? <span/>Click Here!</div>
+            {action === "Sign up" ? <div></div> : <div className="forgot-password">Lost Password? <span>Click Here!</span></div>}
+
             <div className="submit-container">
-                <div className="submit">Sign up</div>
-                <div className="submit">Login</div>
+                <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => { setAction("Sign up") }}>Sign up</div>
+                <div className={action === "Sign up" ? "submit gray" : "submit"} onClick={() => { setAction("Login") }}>Login</div>
             </div>
         </div>
     );
