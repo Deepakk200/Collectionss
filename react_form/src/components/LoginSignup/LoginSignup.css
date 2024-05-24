@@ -3,7 +3,7 @@
     flex-direction: column;
     margin: auto;
     margin-top: 200px;
-    width: 600px; /* Added "px" */
+    width: 600px;
     background: #fff;
     padding-bottom: 30px;
 }
@@ -25,10 +25,24 @@
 }
 
 .underline {
-    width: 61px;
+    width: 70px;
     height: 7px;
     background: #3c009d;
-    border-radius: 9px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.underline.animated {
+    animation: underline-animation 0.5s forwards;
+}
+
+@keyframes underline-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 70px;
+    }
 }
 
 .inputs {
@@ -54,7 +68,7 @@
 
 .input input {
     height: 50px;
-    width: 400px; /* Corrected typo "400ox" to "400px" */
+    width: 400px;
     border: none;
     outline: none;
     background: transparent;
@@ -96,6 +110,6 @@
 }
 
 .gray {
-    background: #eaeaea; /* Changed gray background color */
+    background: #eaeaea;
     color: #676767;
 }
